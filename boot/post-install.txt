@@ -11,6 +11,17 @@ EOF
 
 }
 
+update_modules() {
+
+    cat <<EOF >> /etc/modules
+
+# post-install config
+
+bcm2708-rng
+EOF
+
+}
+
 reboot() {
     shutdown -r now
 }
@@ -19,4 +30,5 @@ reboot() {
 ## do stuff
 
 update_crontab
+update_modules
 reboot
