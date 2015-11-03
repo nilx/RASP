@@ -1,4 +1,4 @@
-# RASP<GO>
+# RASP\<GO>
 
 Experiments towards a Raspberry Pi setup for WFH and business continuity.
 
