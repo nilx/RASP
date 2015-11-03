@@ -1,9 +1,8 @@
 #!/bin/sh
 
 # installer configuration
-rootpw=RASP
-timeserver=pool.ntp.org
-packages=rng-tools,raspi-copies-and-fills
+release=jessie
+packages=chef
 
 # read heartbeat = installing
 echo heartbeat > /sys/class/leds/led1/trigger

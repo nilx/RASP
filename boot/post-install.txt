@@ -28,4 +28,4 @@ echo none > /sys/class/leds/led1/trigger
 # do stuff
 update_crontab
 update_modules
-shutdown -r now
+reboot
