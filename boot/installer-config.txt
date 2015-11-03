@@ -4,5 +4,5 @@
 release=jessie
 packages=chef
 
-# read heartbeat = installing
+# red heartbeat = installing
 echo heartbeat > /sys/class/leds/led1/trigger
