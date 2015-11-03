@@ -22,9 +22,10 @@ EOF
 
 }
 
-## do stuff
+# stop read heartbeat
+echo none > /sys/class/leds/led1/trigger
 
+# do stuff
 update_crontab
 update_modules
-beep -r 2
 shutdown -r now
