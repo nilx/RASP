@@ -1,0 +1,22 @@
+#!/bin/sh
+
+update_crontab() {
+    
+    cat <<EOF >> /etc/crontab
+
+# post-install config
+
+@reboot root echo heartbeat > /sys/class/leds/led0/trigger
+EOF
+
+}
+
+reboot() {
+    shutdown -r now
+}
+
+
+## do stuff
+
+update_crontab
+reboot
