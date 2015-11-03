@@ -2,6 +2,6 @@
 
 rootpw=RASP
 timeserver=pool.ntp.org
-packages=rng-tools,raspi-copies-and-fills
+packages=rng-tools,raspi-copies-and-fills,beep
 
 

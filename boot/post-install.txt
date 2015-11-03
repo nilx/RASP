@@ -22,13 +22,9 @@ EOF
 
 }
 
-reboot() {
-    shutdown -r now
-}
-
-
 ## do stuff
 
 update_crontab
 update_modules
-reboot
+beep -r 2
+shutdown -r now
