@@ -15,4 +15,17 @@ Experiments towards a Raspberry Pi setup for WFH and business continuity.
 
 ## Todo
 
-everything
+* minimal test with browser and citrix client
+* offload post-install config to Chef
+* update via chef or reinstall via respbian-ua-netinst with trustable
+  access to update/reinstall scripts and config
+* use Raspbian Stretch?
+* use own mirror
+* locale setup to EN_US
+* TZ setup from geoip (via gnome?)?
+* disable SSH (few people will update their passwd)
+* VPN config
+* GPIO reboot script
+* GP6/RUN reset hardware support
+* internal design for casing
+* internal sourcing of good power supplies and SD with standard image
