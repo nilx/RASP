@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# red+green heartbeat = setup
+echo heartbeat > /sys/class/leds/led0/trigger
+echo heartbeat > /sys/class/leds/led1/trigger
+
+# green heartbeat = done
+echo "@reboot root echo heartbeat > /sys/class/leds/led0/trigger" >> /etc/crontab
+
+# get chef cookbooks
+# run chef
+# reboot
+
