@@ -13,9 +13,11 @@ cd RASP/chef
 
 # run chef recipes
 CHEFOPTS="-z -c client.rb"
-chef-client $CHEFOPTS r 'recipe[rasp-base-setup::heartbeat]'
-chef-client $CHEFOPTS r 'recipe[rasp-base-setup::motd]'
-chef-client $CHEFOPTS r 'recipe[rasp-base-setup::packages]'
-chef-client $CHEFOPTS r 'recipe[rasp-base-setup::firmware]'
-chef-client $CHEFOPTS r 'recipe[rasp-base-setup::rng]'
+RECIPES=
+RECIPES="${RECIPES}recipe[rasp-base-setup::heartbeat],"
+RECIPES="${RECIPES}recipe[rasp-base-setup::motd],"
+RECIPES="${RECIPES}recipe[rasp-base-setup::packages],"
+RECIPES="${RECIPES}recipe[rasp-base-setup::firmware],"
+RECIPES="${RECIPES}recipe[rasp-base-setup::rng],"
 
+chef-client $CHEFOPTS -r $RECIPES
