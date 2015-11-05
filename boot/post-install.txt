@@ -1,20 +1,21 @@
 #!/bin/sh
 
 ROOT=/rootfs
-GH_RASP=https://github.com/nilx/RASP
 
 # red+green heartbeat = setup
 echo heartbeat > /sys/class/leds/led0/trigger
 echo heartbeat > /sys/class/leds/led1/trigger
-
-# green heartbeat = done
-echo "@reboot root echo heartbeat > /sys/class/leds/led0/trigger" >> $ROOT/etc/crontab
 
 # get RASP code
 cd $ROOT/root
 git clone https://github.com/nilx/RASP.git
 cd RASP/chef
 
-# run chef
-echo "TODO: run chef now"
-# reboot
+# run chef recipes
+CHEFOPTS="-z -c client.rb"
+chef-client $CHEFOPTS r 'recipe[rasp-base-setup::heartbeat]'
+chef-client $CHEFOPTS r 'recipe[rasp-base-setup::motd]'
+chef-client $CHEFOPTS r 'recipe[rasp-base-setup::packages]'
+chef-client $CHEFOPTS r 'recipe[rasp-base-setup::firmware]'
+chef-client $CHEFOPTS r 'recipe[rasp-base-setup::rng]'
+

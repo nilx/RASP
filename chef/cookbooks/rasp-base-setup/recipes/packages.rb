@@ -1,9 +1,23 @@
-# TODO repositories
+# use jessie repositories
 
-# recommended by raspbian-ua-install
+template '/etc/apt/sources.list' do
+  source 'sources.list.erb'
+end
+
+# update, upgrade
+execute 'package_update' do
+  command 'apt-get update'
+end
+execute 'package_upgrade' do
+  command 'apt-get upgrade'
+end
+
+# raspberry pi utils
 package 'raspi-copies-and-fills'
-package 'rng-tools'
-
-# generic base tools
-package 'apt-utils'
 package 'raspi-config'
+
+# generic utils
+package 'apt-utils'
+package 'aptitude'
+package 'htop'
+package 'emacs23-nox'

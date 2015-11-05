@@ -1,5 +1,6 @@
-# TODO repositories
+# update the firmware
 
 package 'rpi-update'
-
-# run rpi-update
+execute 'firmware_update' do
+  command 'rpi-update'
+end
