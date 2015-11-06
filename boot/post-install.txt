@@ -1,23 +1,34 @@
 #!/bin/sh
+set -x
 
-ROOT=/rootfs
+ROOTFS=/rootfs
 
-# red+green heartbeat = setup
-echo heartbeat > /sys/class/leds/led0/trigger
-echo heartbeat > /sys/class/leds/led1/trigger
+if [ -d $ROOTFS ]; then
 
-# get RASP code
-cd $ROOT/root
-git clone https://github.com/nilx/RASP.git
-cd RASP/chef
+    # red+green heartbeat = post-install setup
+    echo heartbeat > /sys/class/leds/led0/trigger
+    echo heartbeat > /sys/class/leds/led1/trigger
 
-# run chef recipes
-CHEFOPTS="-z -c client.rb"
-RECIPES=
-RECIPES="${RECIPES}recipe[rasp-base-setup::heartbeat],"
-RECIPES="${RECIPES}recipe[rasp-base-setup::motd],"
-RECIPES="${RECIPES}recipe[rasp-base-setup::packages],"
-RECIPES="${RECIPES}recipe[rasp-base-setup::firmware],"
-RECIPES="${RECIPES}recipe[rasp-base-setup::rng],"
+    # re-run from chroot
+    chroot $ROOTFS /bin/sh /boot/post-install.txt
 
-chef-client $CHEFOPTS -r $RECIPES
+else
+
+    # get RASP code
+    rm -rf /root/RASP
+    # TODO: use wget+unzip instead
+    git clone https://github.com/nilx/RASP.git /root/RASP
+    cd /root/RASP/chef
+
+    # run chef recipes
+    CHEFOPTS="-z -c client.rb"
+    RECIPES=
+    RECIPES="${RECIPES}recipe[rasp-base-setup::heartbeat],"
+    RECIPES="${RECIPES}recipe[rasp-base-setup::motd],"
+    RECIPES="${RECIPES}recipe[rasp-base-setup::packages],"
+    RECIPES="${RECIPES}recipe[rasp-base-setup::firmware],"
+    RECIPES="${RECIPES}recipe[rasp-base-setup::rng],"
+
+    chef-client $CHEFOPTS -r $RECIPES
+
+fi

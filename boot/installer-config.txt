@@ -2,7 +2,7 @@
 
 # installer configuration
 release=jessie
-packages=chef
+packages=chef,git
 
 # red heartbeat = installing
 echo heartbeat > /sys/class/leds/led1/trigger
