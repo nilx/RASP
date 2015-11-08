@@ -6,19 +6,22 @@ Experiments towards a Raspberry Pi setup for WFH and business continuity.
 
 * hardware : Raspberry Pi 2 Model B
 * OS & distro : Raspbian
-* expected deliverables:
+* developments:
   * raspbian-ua-netinst config and post-install scripts
-  * presets for BBE and BBA
-  * RDP client?
-  * VPN setup?
-  * desktop/browser links to essential resources
-  * update and reinstall scripts
-  * SD image
+  * chef scripts for system setup beyond netinst
+  * tools and presets for BBE and BBA
+  * Citrix, RDP and VPN tools?
+  * desktop/browser links to essential resources for emergency preparedness,
+    disaster management and business continuity
+* deliverables:
+  * shell & chef scripts
+  * preinstalled SD image
+  * git repo for updates
 
 ## Usage
 
 1. Download and copy the [raspbian-ua-netinst][ua] image to you SD card.
-2. Copy `./boot` files to the boot partition.
+2. Copy `./boot/*.txt` files to the boot partition.
 
 ```
 wget https://github.com/nilx/RASP/archive/master.zip -O RASP-master.zip
@@ -33,15 +36,9 @@ Blinkenlights:
 * red&green: post-install config
 * green: done; you can use it
 
-Next: chef post-install setup
-
-
 ## Todo
 
 * minimal test with browser and citrix client
-* update via chef or reinstall via respbian-ua-netinst with trustable
-  access to update/reinstall scripts and config
-* use own mirror?
 * disable SSH (few people will update their passwd)
 * GPIO reboot script, GP6/RUN hardware reset
 * source design for casing
