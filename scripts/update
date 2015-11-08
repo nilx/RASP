@@ -1,0 +1,27 @@
+#!/bin/sh
+
+echo "$(date): starting RASP update"
+# red+green heartbeat = update mode
+echo heartbeat > /sys/class/leds/led0/trigger
+echo heartbeat > /sys/class/leds/led1/trigger
+
+RASPDIR=/root/RASP
+CHEFDIR=$RASPDIR/chef
+# TODO: update from git
+cd $CHEFDIR
+
+# run chef recipes
+CHEFOPTS="-z -c client.rb"
+RECIPES=
+RECIPES="${RECIPES}recipe[rasp-base-setup::heartbeat],"
+RECIPES="${RECIPES}recipe[rasp-base-setup::motd],"
+RECIPES="${RECIPES}recipe[rasp-base-setup::packages],"
+RECIPES="${RECIPES}recipe[rasp-base-setup::firmware],"
+RECIPES="${RECIPES}recipe[rasp-base-setup::rng],"
+
+chef-client $CHEFOPTS -r $RECIPES
+
+echo "$(date): end of RASP update"
+echo "$(date): rebooting"
+
+reboot

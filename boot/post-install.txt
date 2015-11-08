@@ -1,34 +1,19 @@
 #!/bin/sh
-set -x
 
 ROOTFS=/rootfs
+RASPDIR=$ROOTFS/root/RASP
+RASPURL=https://github.com/nilx/RASP.git
 
-if [ -d $ROOTFS ]; then
+CRONTAB=$ROOTFS/etc/crontab
 
-    # red+green heartbeat = post-install setup
-    echo heartbeat > /sys/class/leds/led0/trigger
-    echo heartbeat > /sys/class/leds/led1/trigger
+# get RASP code
+rm -rf $RASPDIR
+# TODO: use wget+unzip instead?
+git clone $RASPURL $RASPDIR
 
-    # re-run from chroot
-    chroot $ROOTFS /bin/sh /boot/post-install.txt
+# run on reboot
+cat <<EOF >> $CRONTAB
+@reboot root test -f /root/RASP/update-on-reboot && /root/RASP/scripts/update >> /var/log/rasp-update.log; rm /root/RASP/update-on-reboot
+EOF
 
-else
-
-    # get RASP code
-    rm -rf /root/RASP
-    # TODO: use wget+unzip instead
-    git clone https://github.com/nilx/RASP.git /root/RASP
-    cd /root/RASP/chef
-
-    # run chef recipes
-    CHEFOPTS="-z -c client.rb"
-    RECIPES=
-    RECIPES="${RECIPES}recipe[rasp-base-setup::heartbeat],"
-    RECIPES="${RECIPES}recipe[rasp-base-setup::motd],"
-    RECIPES="${RECIPES}recipe[rasp-base-setup::packages],"
-    RECIPES="${RECIPES}recipe[rasp-base-setup::firmware],"
-    RECIPES="${RECIPES}recipe[rasp-base-setup::rng],"
-
-    chef-client $CHEFOPTS -r $RECIPES
-
-fi
+touch $RASPDIR/update-on-reboot
