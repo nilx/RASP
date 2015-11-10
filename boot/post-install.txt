@@ -1,19 +1,25 @@
 #!/bin/sh
 
 ROOTFS=/rootfs
-RASPDIR=$ROOTFS/root/RASP
-RASPURL=https://github.com/nilx/RASP.git
 
-CRONTAB=$ROOTFS/etc/crontab
+if [ -d $ROOTFS ]; then
+    # re-run inside chroot
+    chroot $ROOTFS /bin/sh /boot/post-install.txt
 
-# get RASP code
-rm -rf $RASPDIR
-# TODO: use wget+unzip instead?
-git clone $RASPURL $RASPDIR
+else
+    # already in chroot
+    RASPDIR=/root/RASP
+    RASPURL=https://github.com/nilx/RASP.git
 
-# run on reboot
-cat <<EOF >> $CRONTAB
-@reboot root test -f /root/RASP/update-on-reboot && /root/RASP/scripts/update >> /var/log/rasp-update.log; rm /root/RASP/update-on-reboot
+    # get RASP code
+    rm -rf $RASPDIR
+    # TODO: use busybox wget+unzip instead, no need to chroot?
+    git clone $RASPURL $RASPDIR
+
+    # update on reboot if needed
+    cat <<EOF >> /etc/crontab
+@reboot root test -f $RASPDIR/update-on-reboot && $RASPDIR/scripts/update >> /var/log/rasp-update.log; rm $RASPDIR/update-on-reboot
 EOF
-
-touch $RASPDIR/update-on-reboot
+    # mark as needed
+    touch $RASPDIR/update-on-reboot
+fi
