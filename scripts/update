@@ -10,17 +10,9 @@ CHEFDIR=$RASPDIR/chef
 cd $CHEFDIR
 
 # run chef recipes
-# TODO: call from default
 CHEFOPTS="-z -c client.rb"
-RECIPES=
-RECIPES="${RECIPES}recipe[rasp-base-setup::heartbeat],"
-RECIPES="${RECIPES}recipe[rasp-base-setup::motd],"
-RECIPES="${RECIPES}recipe[rasp-base-setup::packages],"
-RECIPES="${RECIPES}recipe[rasp-base-setup::firmware],"
-RECIPES="${RECIPES}recipe[rasp-base-setup::rng],"
 
-# todo: disable all chef-server settings
-chef-client $CHEFOPTS -r $RECIPES
+chef-client $CHEFOPTS -r "recipe[rasp-base-setup]"
 
 echo "$(date --rfc-3339=seconds): end of RASP update - rebooting"
 
