@@ -1,5 +1,7 @@
 # all recipes expected for a default setup
 
+include_recipe "#{cookbook_name}::apt"
+
 include_recipe "#{cookbook_name}::kernel"
 include_recipe "#{cookbook_name}::heartbeat"
 include_recipe "#{cookbook_name}::motd"

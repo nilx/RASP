@@ -1,6 +1,6 @@
 # update the firmware
 package 'rpi-update'
-execute 'rpi-update'
+execute 'SKIP_WARNING=1 rpi-update'
 
 # overclocking
 cookbook_file '/boot/config.txt' do
