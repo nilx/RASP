@@ -3,7 +3,7 @@
 package 'ruby-shadow'
 
 user 'user' do
-  password ''
+  password 'user' # can't use an empty password, not accepted by sudo
   shell '/bin/bash'
   home '/home/user'
   manage_home true
