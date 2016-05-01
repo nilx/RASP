@@ -1,7 +1,7 @@
 # update the firmware
 package 'rpi-update'
 execute 'rpi-update' do
-  environment {'SKIP_WARNING' => '1'}
+  environment 'SKIP_WARNING' => '1'
 end
 
 # overclocking

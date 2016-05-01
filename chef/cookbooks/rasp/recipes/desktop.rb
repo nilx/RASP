@@ -3,14 +3,14 @@
 #TODO: fix timeout
 execute 'install lxde' do
   command 'apt-get install -q -y lxde'
-  environment {'DEBIAN_FRONTEND' => 'noninteractive'}
+  environment 'DEBIAN_FRONTEND' => 'noninteractive'
   not_if { File.file?('/usr/bin/lxsession') }
 end
 package 'lxde'
 
 execute 'install lightdm' do
   command 'apt-get install -q -y lightdm'
-  environment {'DEBIAN_FRONTEND' => 'noninteractive'}
+  environment 'DEBIAN_FRONTEND' => 'noninteractive'
   not_if { File.file?('/usr/sbin/lightdm') }
 end
 package 'lightdm'
@@ -37,7 +37,9 @@ dpkg_package 'icaclient' do
 end
 
 # finish installation with dependencies # libxerces libwebkitgtk
-execute 'apt-get install -q -f -y'
+execute 'apt-get install -q -f -y' do
+  environment 'DEBIAN_FRONTEND' => 'noninteractive'
+end
 
 # ssl certificate
 cert = 'VeriSign_Class_3_Public_Primary_Certification_Authority_-_G5.pem'
