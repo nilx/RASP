@@ -2,7 +2,7 @@
 
 # TODO: use Ruby
 ip = `curl -s icanhazip.com`
-tz = `curl -s geoip.cf/api/68.32.144.33/timezone`
+tz = "curl -s geoip.cf/api/#{ip}/timezone"
 
 file "/etc/timezone" do
   content "#{tz}"
