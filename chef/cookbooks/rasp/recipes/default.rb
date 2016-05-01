@@ -7,6 +7,7 @@ include_recipe "#{cookbook_name}::heartbeat"
 include_recipe "#{cookbook_name}::motd"
 include_recipe "#{cookbook_name}::user"
 include_recipe "#{cookbook_name}::locale"
+include_recipe "#{cookbook_name}::tz"
 
 include_recipe "#{cookbook_name}::services"
 include_recipe "#{cookbook_name}::utils"

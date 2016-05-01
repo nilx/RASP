@@ -1,6 +1,8 @@
 # update the firmware
 package 'rpi-update'
-execute 'SKIP_WARNING=1 rpi-update'
+execute 'rpi-update' do
+  environment {'SKIP_WARNING' => '1'}
+end
 
 # overclocking
 cookbook_file '/boot/config.txt' do

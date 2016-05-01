@@ -3,12 +3,14 @@
 #TODO: fix timeout
 execute 'install lxde' do
   command 'apt-get install -q -y lxde'
+  environment {'DEBIAN_FRONTEND' => 'noninteractive'}
   not_if { File.file?('/usr/bin/lxsession') }
 end
 package 'lxde'
 
 execute 'install lightdm' do
   command 'apt-get install -q -y lightdm'
+  environment {'DEBIAN_FRONTEND' => 'noninteractive'}
   not_if { File.file?('/usr/sbin/lightdm') }
 end
 package 'lightdm'
