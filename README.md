@@ -13,3 +13,16 @@ You get:
 * access BB terminal from <https://bba.bloomberg.com/> with Citrix client
 * access generic PC from <https://bbe.bloomberg.com/> with Citrix client
 * access own PC from <https://bbe.bloomberg.com/> with Ericom HTML in Firefox
+
+Useful as a second workstation for:
+* business trips, on the hotel TV
+* WFH without mixing work and home devices or in temporary location
+* disaster recovery
+
+TODO:
+* retrieve Citrix client directly from citrix.com
+* add Ericom RDP client (need armhf .deb)
+* Vidyo/NEXI (stand-alone or web client)
+* some VPN support
+* basic minimal LXDE style and essential shortcuts
+* dual-host+monitor (two raspi + synergy or xdmx)
