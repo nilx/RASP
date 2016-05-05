@@ -20,8 +20,6 @@ Useful as a second workstation for:
 * disaster recovery
 
 TODO:
-* preinstall common firmware (for usb wifi)
-* preconfigure usb tethering
 * retrieve Citrix client directly from citrix.com
 * try Opera, compare with Firefox
 * try to use chromium from [Ubuntu builds](http://packages.ubuntu.com/search?keywords=chromium)
