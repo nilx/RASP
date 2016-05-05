@@ -18,3 +18,7 @@ package 'zip'
 package 'bash-completion'
 package 'file'
 
+# for usb wifi
+package 'usbutils'
+package 'firmware-realtek'
+
