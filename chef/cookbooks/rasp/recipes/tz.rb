@@ -1,11 +1,13 @@
 # set timezone
 
+# TODO: store in nopde attributes
 require 'open-uri'
+tz = 'Etc/UTC'
 open('http://icanhazip.com/') do |f|
   ip = f.read.strip
-end
-open("http://geoip.cf/api/#{ip}/timezone") do |f|
-  tz = f.read.strip
+  open("http://geoip.cf/api/#{ip}/timezone") do |f|
+    tz = f.read.strip
+  end
 end
 
 file "/etc/timezone" do
