@@ -20,12 +20,13 @@ Useful as a second workstation for:
 * disaster recovery
 
 TODO:
-* retrieve Citrix client directly from citrix.com
-* try Opera, compare with Firefox
-* try to use chromium from [Ubuntu builds](http://packages.ubuntu.com/search?keywords=chromium)
-* Vidyo/NEXI (stand-alone or web client)
+* retrieve Citrix client directly from citrix.com and pre-install dependencies before `dpkg -i`
+* Vidyo/NEXI web client
+* bemp presets for wicd
+* Firefox presets: allow citrix, don't remember paswords
 * some VPN support
 * basic minimal LXDE style and essential shortcuts
+* unattended upgrades
 * dual-host+monitor (two raspi + synergy)
 
 WONTFIX:
@@ -33,3 +34,5 @@ WONTFIX:
 * xdmx dual host+monitor (xdmx unusable according to multiple web reports)
 * native Chrome or Raspbian Chromium (no arm builds)
 * Midori browser (not enough HTML5 support for Ericom RDP)
+* Opera browser (no arm build)
+* Chromium from <http://ports.ubuntu.com/> (segfault, wily&xenial)
