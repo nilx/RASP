@@ -20,7 +20,6 @@ Useful as a second workstation for:
 * disaster recovery
 
 TODO:
-* retrieve Citrix client directly from citrix.com and pre-install dependencies before `dpkg -i`
 * Vidyo/NEXI web client
 * bemp presets for wicd
 * Firefox presets: allow citrix, don't remember paswords
