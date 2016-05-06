@@ -1,11 +1,8 @@
 # RASP \<go>
 
 1. install the base raspbian system on a RaspberryPi 2B with [raspbian-ua-netinst](https://github.com/debian-pi/raspbian-ua-netinst)
-2. `apt-get install -q -y git chef`
-3. `git clone https://github.com/nilx/RASP.git`
-4. `cd RASP/chef && chef-client -z -c client.rb -r "recipe[rasp]"`
-   (will take a loooong time to install everything)
-5. reboot for new kernel, firmware, settings, etc.
+2. `curl -q https://github.com/nilx/RASP/raw/master/bootstrap.sh | sh`
+   (will take a loooong time to install everything, and reboot when it's done)
 
 You get:
 * a working, minimal, XFCE-based desktop on Raspberry Pi, with a few performance tunings
