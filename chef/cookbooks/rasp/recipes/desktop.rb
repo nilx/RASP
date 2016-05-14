@@ -27,6 +27,16 @@ end
 # HTML5 browser
 package 'iceweasel'
 
+# bookmarks toolbar
+cookbook_file '/etc/iceweasel/profile/bookmarks.html' do
+  source 'etc/iceweasel/profile/bookmarks.html'
+end
+# FIXME: xulstore not used for new profiles
+#cookbook_file '/etc/iceweasel/profile/xulstore.json' do
+#  source 'etc/iceweasel/profile/xulstore.json'
+#end
+
+
 ##
 # Citrix client
 
