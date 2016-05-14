@@ -4,19 +4,19 @@
 # LXDE
 
 #TODO: fix timeout
-execute 'install lxde' do
-  command 'apt-get install -q -y lxde'
+execute 'install lxde and lightdm' do
+  command 'apt-get install -q -y lxde lightdm'
   environment 'DEBIAN_FRONTEND' => 'noninteractive'
-  not_if { File.file?('/usr/bin/lxsession') }
+  not_if { File.file?('/usr/bin/lxsession') \
+           and File.file?('/usr/sbin/lightdm') }
 end
 package 'lxde'
-
-execute 'install lightdm' do
-  command 'apt-get install -q -y lightdm'
-  environment 'DEBIAN_FRONTEND' => 'noninteractive'
-  not_if { File.file?('/usr/sbin/lightdm') }
-end
 package 'lightdm'
+
+# don't need xscreensaver
+package 'xscreensaver' do
+  action :remove
+end
 
 # auto-login
 cookbook_file '/etc/lightdm/lightdm.conf' do
