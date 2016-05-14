@@ -6,7 +6,8 @@
    (will take a loooong time to install everything, and reboot when it's done)
 
 You get:
-* a working, minimal, XFCE-based desktop on Raspberry Pi, with a few performance tunings
+* a working, minimal, LXDE-based desktop on Raspberry Pi,
+  with a few performance tunings
 * auto-login to user `user`
 * access BB terminal from <https://bba.bloomberg.com/> with Citrix client
 * access generic PC from <https://bbe.bloomberg.com/> with Citrix client
@@ -14,15 +15,15 @@ You get:
 
 Useful as a second workstation for:
 * business trips, on the hotel TV
+  (bring your HDMI cable, keyboard and mouse)
 * WFH without mixing work and home devices or in temporary location
 * disaster recovery
 
 TODO:
-* simplified icaclient download and install
-* rpi-update feedback
-* Vidyo/NEXI web client
-* bemp presets for wicd
 * Firefox presets: allow citrix, don't remember paswords
+* Vidyo/NEXI web client
+* Slack client
+* bemp presets for wicd
 * some VPN support
 * basic minimal LXDE style and essential shortcuts
 * unattended upgrades
@@ -35,3 +36,4 @@ WONTFIX:
 * Midori browser (not enough HTML5 support for Ericom RDP)
 * Opera browser (no arm build)
 * Chromium from <http://ports.ubuntu.com/> (segfault, wily&xenial)
+* rpi-update feedback (requires chef version > 11.12)

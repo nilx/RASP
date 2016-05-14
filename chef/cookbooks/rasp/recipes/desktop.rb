@@ -30,7 +30,7 @@ package 'iceweasel'
 ##
 # Citrix client
 
-icaclient_deb = '/root/icaclient_arnhf.deb'
+icaclient_deb = '/root/icaclient_armhf.deb'
 
 package 'ruby-nokogiri'
 # get .deb from Citrix
@@ -64,10 +64,17 @@ ruby_block 'get icaclient' do
   not_if { File.exists?(icaclient_deb) }
 end
 
-# install local .deb with dpkg and complete with dependencies
-execute 'install icaclient' do
-  command "dpkg -i #{icaclient_deb} || apt-get --quiet --yes --fix-broken install"
+# install icaclient from local .deb and fix missing dependencies
+execute "dpkg -i #{icaclient_deb}" do
+  returns [0, 1] # allow missing dependencies
+  notifies :run, 'execute[apt-get --fix-broken]', :immediately
+  not_if { `dpkg-query --showformat '${Status}' --show icaclient` \
+           == 'install ok installed' }
+end
+execute 'apt-get --fix-broken' do
+  command 'apt-get --quiet --yes --fix-broken install'
   environment 'DEBIAN_FRONTEND' => 'noninteractive'
+  action :nothing
 end
 
 # ssl certificate
