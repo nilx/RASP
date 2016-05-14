@@ -27,6 +27,7 @@ TODO:
 * some VPN support
 * basic minimal LXDE style and essential shortcuts
 * unattended upgrades
+* config.txt for other models
 * dual-host+monitor (two raspi + synergy)
 
 WONTFIX:
