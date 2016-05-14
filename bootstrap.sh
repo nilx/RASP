@@ -1,6 +1,6 @@
 #! /bin/sh
 # RASP<go> bootstrap script
-# curl -q https://github.com/nilx/RASP/raw/master/bootstrap.sh | sh
+# curl -L https://github.com/nilx/RASP/raw/master/bootstrap.sh | sh
 
 set -e
 set -x

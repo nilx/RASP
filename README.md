@@ -1,7 +1,8 @@
 # RASP \<go>
 
 1. install the base raspbian system on a RaspberryPi 2B with [raspbian-ua-netinst](https://github.com/debian-pi/raspbian-ua-netinst)
-2. `curl -q https://github.com/nilx/RASP/raw/master/bootstrap.sh | sh`
+2. login as `root/raspbian`
+3. `curl -L https://github.com/nilx/RASP/raw/master/bootstrap.sh | sh`
    (will take a loooong time to install everything, and reboot when it's done)
 
 You get:
@@ -17,6 +18,8 @@ Useful as a second workstation for:
 * disaster recovery
 
 TODO:
+* simplified icaclient download and install
+* rpi-update feedback
 * Vidyo/NEXI web client
 * bemp presets for wicd
 * Firefox presets: allow citrix, don't remember paswords
