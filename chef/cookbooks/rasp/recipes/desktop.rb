@@ -30,12 +30,11 @@ package 'iceweasel'
 ##
 # Citrix client
 
-# parse Citrix web
-icaclient_url = 'https://foobar/icaclient.deb'
-icaclient_deb = 'icaclient.deb'
+icaclient_deb = '/root/icaclient_arnhf.deb'
 
 package 'ruby-nokogiri'
-ruby_block 'find icaclient' do
+# get .deb from Citrix
+ruby_block 'get icaclient' do
   block do
     require 'nokogiri'
     require 'open-uri'
@@ -45,31 +44,24 @@ ruby_block 'find icaclient' do
     url = 'https://www.citrix.com' \
           + '/downloads/citrix-receiver/linux' \
           + '/receiver-for-linux-latest.html'
-    
+
+    icaclient_url = ''
     Nokogiri::HTML(open(url)).css('.ctx-dl-external').each do |elt|
       rel = elt['rel']
       fname = String(Pathname(URI(rel).path).basename)
       if fname.start_with?('icaclient_') and fname.end_with?('_armhf.deb')
-        icaclient_deb = '/var/cache/apt/archives/' + fname
         icaclient_url = 'https:' + rel
         break
       end
     end
-  # update remote_file attributes
-  remote_file_r = run_context.resource_collection.find(:remote_file => 'icaclient.deb')
-  remote_file_r.path icaclient_deb
-  remote_file_r.source icaclient_url
-  # update execute attributes
-  execute_r = run_context.resource_collection.find(:execute => 'install icaclient')
-  execute_r.command "dpkg -i #{icaclient_deb} || apt-get --quiet --yes --fix-broken install"
+    # download file
+    File.open(icaclient_deb, "wb") do |local|
+      open(icaclient_url, "rb") do |remote|
+        local.write(remote.read)
+      end
+    end
   end
-end
-
-# get .deb from Citrix
-remote_file 'icaclient.deb' do
-  path   icaclient_deb
-  source icaclient_url
-  action :create_if_missing
+  not_if { File.exists?(icaclient_deb) }
 end
 
 # install local .deb with dpkg and complete with dependencies
