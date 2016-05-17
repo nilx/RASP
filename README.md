@@ -23,7 +23,7 @@ Useful as a second workstation for:
 TODO:
 * Firefox presets: allow citrix, don't remember paswords,
   show bookmarks toolbar
-* Vidyo/NEXI web client
+* hardware GPU acceleration (https://www.raspberrypi.org/blog/another-new-raspbian-release/)
 * bemp presets for wicd
 * some VPN support
 * basic minimal LXDE style and essential shortcuts
@@ -44,3 +44,4 @@ WONTFIX:
 * Chromium from <http://ports.ubuntu.com/> (segfault, wily&xenial)
 * rpi-update feedback (requires chef version > 11.12)
 * Slack client (no arm build, 3rd party clients unusable)
+* Vidyo/NEXI web client (Linux unsupported)
