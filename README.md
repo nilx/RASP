@@ -7,7 +7,7 @@
 
 You get:
 * a working, minimal, LXDE-based desktop on Raspberry Pi,
-  with a few performance tunings
+  with a few performance/convenience tunings
 * auto-login to user `user`
 * essential bookmarks for Firefox
 * access BB terminal from <https://bba.bloomberg.com/> with Citrix client
@@ -26,15 +26,17 @@ Tested on:
 TODO:
 * Firefox presets: allow citrix, don't remember paswords,
   show bookmarks toolbar
-* hardware GPU acceleration (https://www.raspberrypi.org/blog/another-new-raspbian-release/)
 * RaspberryPi 3B
 * bemp presets for wicd
-* some VPN support
 * basic minimal LXDE style and essential shortcuts
 * unattended upgrades
 * config.txt for other models
-* dual-host+monitor (two raspi + synergy)
+
+LATER:
+* hardware GPU acceleration: experimental and unstable for the moment (https://www.raspberrypi.org/blog/another-new-raspbian-release/)
 * try raspbian stretch (unstable) release
+* some VPN support (when made available by InfoSys)
+* dual-host+monitor (two raspi + synergy)
 
 BUGS:
 * Citrix ICA files are not downloaded anymore; they were, in the past,

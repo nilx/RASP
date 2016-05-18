@@ -13,3 +13,7 @@ end
 file "/etc/timezone" do
   content "#{tz}\n"
 end
+
+link "/etc/localtime" do
+  to "/usr/share/zoneinfo/#{tz}"
+end
