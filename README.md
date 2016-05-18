@@ -32,15 +32,16 @@ TODO:
 * unattended upgrades
 * config.txt for other models
 
+BUGS:
+* Citrix ICA files are not downloaded by the browser anymore;
+  they were, in the past, and a Citrix connection has been used
+  succesfully; to be investigated
+
 LATER:
 * hardware GPU acceleration: experimental and unstable for the moment (https://www.raspberrypi.org/blog/another-new-raspbian-release/)
 * try raspbian stretch (unstable) release
 * some VPN support (when made available by InfoSys)
 * dual-host+monitor (two raspi + synergy)
-
-BUGS:
-* Citrix ICA files are not downloaded anymore; they were, in the past,
-  and a Citrix connection has been used succesfully
 
 WONTFIX:
 * Ericom RDP client (no armhf version, from Ericom customer service)
