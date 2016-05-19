@@ -26,11 +26,10 @@ Tested on:
 TODO:
 * Firefox presets: allow citrix, don't remember paswords,
   show bookmarks toolbar
-* RaspberryPi 3B
+* tests and confix.txt for RPi B and 3B
 * bemp presets for wicd
 * basic minimal LXDE style and essential shortcuts
 * unattended upgrades
-* config.txt for other models
 
 BUGS:
 * Citrix ICA files are not downloaded by the browser anymore;
@@ -53,3 +52,14 @@ WONTFIX:
 * rpi-update feedback (requires chef version > 11.12)
 * Slack client (no arm build, 3rd party clients unusable)
 * Vidyo/NEXI web client (Linux unsupported)
+
+### misc
+
+#### Ericom keyboard shortcuts
+
+Shortcut 	Action
+ALT+PAGE UP 	Switches between programs from left to right
+ALT+PAGE DOWN 	Switches between programs from right to left
+ALT+HOME 	Displays the Start menu
+CTRL+ALT+END 	Brings up the Windows Security dialog box
+ALT+DELETE 	Displays the Windows menu
