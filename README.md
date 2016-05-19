@@ -57,9 +57,8 @@ WONTFIX:
 
 #### Ericom keyboard shortcuts
 
-Shortcut 	Action
-ALT+PAGE UP 	Switches between programs from left to right
-ALT+PAGE DOWN 	Switches between programs from right to left
-ALT+HOME 	Displays the Start menu
-CTRL+ALT+END 	Brings up the Windows Security dialog box
-ALT+DELETE 	Displays the Windows menu
+* ALT+PAGE UP 	Switches between programs from left to right
+* ALT+PAGE DOWN 	Switches between programs from right to left
+* ALT+HOME 	Displays the Start menu
+* CTRL+ALT+END 	Brings up the Windows Security dialog box
+* ALT+DELETE 	Displays the Windows menu
