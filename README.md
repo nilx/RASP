@@ -9,10 +9,8 @@ You get:
 * a working, minimal, LXDE-based desktop on Raspberry Pi,
   with a few performance/convenience tunings
 * auto-login to user `user`
-* essential bookmarks for Firefox
 * access BB terminal from <https://bba.bloomberg.com/> with Citrix client
-* access generic PC from <https://bbe.bloomberg.com/> with Citrix client
-* access own PC from <https://bbe.bloomberg.com/> with Ericom HTML in Firefox
+* access work PC and generic PC from <https://bbe.bloomberg.com/> with Citrix client
 
 Useful as a second workstation for:
 * business trips, on the hotel TV
@@ -24,11 +22,9 @@ Tested on:
 * RaspberryPi 2B
 
 TODO:
-* Firefox presets: allow citrix, don't remember paswords,
-  show bookmarks toolbar
+* browser presets: allow citrix, don't remember paswords
 * tests and confix.txt for RPi B and 3B, using https://github.com/Phiber2000/raspberrypi-ua-netinst
-* drop Firefox, stick to default browser
-* drop bookmarks, use browser-agnostic startpage with links
+* browser-agnostic startpage with links
 * bemp presets for wicd
 * basic minimal LXDE style and essential shortcuts
 * unattended upgrades
@@ -58,8 +54,11 @@ WONTFIX:
 
 ### misc
 
-#### Ericom keyboard shortcuts
+#### Ericom HTML5
 
+You can install Firefox for Ericom HTML5, but it's slower than Citrix and uses lots of CPU
+
+Shortcuts:
 * ALT+PAGE UP 	Switches between programs from left to right
 * ALT+PAGE DOWN 	Switches between programs from right to left
 * ALT+HOME 	Displays the Start menu
