@@ -2,7 +2,7 @@
 
 1. install the base raspbian system on a RaspberryPi with [raspbian-ua-netinst](https://github.com/debian-pi/raspbian-ua-netinst)
 2. login as `root/raspbian`
-3. `curl -L https://github.com/nilx/RASP/raw/master/bootstrap.sh | sh`
+3. `wget -q -O- https://github.com/nilx/RASP/raw/master/bootstrap.sh | sh`
    (will take a loooong time to install everything, and reboot when it's done)
 
 You get:
