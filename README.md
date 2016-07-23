@@ -32,6 +32,7 @@ TODO:
 * bemp presets for wicd
 * basic minimal LXDE style and essential shortcuts
 * unattended upgrades
+* file association .ica/wfica 
 
 BUGS:
 * Citrix ICA files are not downloaded by the browser anymore;
