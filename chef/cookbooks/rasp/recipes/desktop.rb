@@ -24,8 +24,8 @@ cookbook_file '/etc/lightdm/lightdm.conf' do
 end
 
 ##
-# HTML5 browser
-# package 'iceweasel'
+# web browser
+package 'epiphany-browser'
 
 # bookmarks toolbar
 # cookbook_file '/etc/iceweasel/profile/bookmarks.html' do

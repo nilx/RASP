@@ -8,7 +8,7 @@
 You get:
 * a working, minimal, LXDE-based desktop on Raspberry Pi,
   with a few performance/convenience tunings
-* auto-login to user `user`
+* auto-login to user `user` (sudoer, password:`rasp`)
 * access BB terminal from <https://bba.bloomberg.com/> with Citrix client
 * access work PC and generic PC from <https://bbe.bloomberg.com/> with Citrix client
 

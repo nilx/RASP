@@ -8,5 +8,5 @@ set -x
 DEBIAN_FRONTEND=noninteractive apt-get install --quiet --yes --no-install-recommends git chef
 git clone https://github.com/nilx/RASP.git
 cd RASP/chef
-chef-client -z -c client.rb -r "recipe[rasp]"
+./rasp.sh
 reboot
