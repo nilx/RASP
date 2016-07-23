@@ -26,7 +26,9 @@ Tested on:
 TODO:
 * Firefox presets: allow citrix, don't remember paswords,
   show bookmarks toolbar
-* tests and confix.txt for RPi B and 3B
+* tests and confix.txt for RPi B and 3B, using https://github.com/Phiber2000/raspberrypi-ua-netinst
+* drop Firefox, stick to default browser
+* drop bookmarks, use browser-agnostic startpage with links
 * bemp presets for wicd
 * basic minimal LXDE style and essential shortcuts
 * unattended upgrades
