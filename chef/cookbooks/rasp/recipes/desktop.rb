@@ -25,12 +25,12 @@ end
 
 ##
 # HTML5 browser
-package 'iceweasel'
+# package 'iceweasel'
 
 # bookmarks toolbar
-cookbook_file '/etc/iceweasel/profile/bookmarks.html' do
-  source 'etc/iceweasel/profile/bookmarks.html'
-end
+# cookbook_file '/etc/iceweasel/profile/bookmarks.html' do
+#   source 'etc/iceweasel/profile/bookmarks.html'
+# end
 # FIXME: xulstore not used for new profiles
 #cookbook_file '/etc/iceweasel/profile/xulstore.json' do
 #  source 'etc/iceweasel/profile/xulstore.json'
@@ -89,7 +89,11 @@ end
 
 # ssl certificate
 cert = 'VeriSign_Class_3_Public_Primary_Certification_Authority_-_G5.pem'
-link 'icacert' do
-  target_file "/opt/Citrix/ICAClient/keystore/cacerts/#{cert}"
+link "/opt/Citrix/ICAClient/keystore/cacerts/#{cert}" do
   to "/etc/ssl/certs/#{cert}"
+end
+
+# command-line wfica
+link '/usr/local/bin/wfica' do
+  to '/opt/Citrix/ICAClient/wfica.sh'
 end
