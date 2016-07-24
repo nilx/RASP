@@ -1,5 +1,9 @@
 # use custom motd
-
-cookbook_file '/etc/motd' do
-  source 'etc/motd'
+file '/etc/motd' do
+  content "\
+RASP<GO>
+"
 end
+
+
+

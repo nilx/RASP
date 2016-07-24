@@ -1,15 +1,14 @@
-# set default passwordless user
-
+# default passwordless user, sudoer
 package 'ruby-shadow'
 
-user 'user' do
-  password 'rasp'
+user 'pi' do
+  password 'raspberry'
   shell '/bin/bash'
-  home '/home/user'
+  home '/home/pi'
   manage_home true
 end
 
 group 'sudo' do
   append true
-  members 'user'
+  members 'pi'
 end

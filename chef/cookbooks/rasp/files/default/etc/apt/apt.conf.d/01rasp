@@ -1,2 +1,0 @@
-APT::Get::Install-Recomments "false";
-APT::Get::Install-Suggests   "false";

@@ -1,10 +1,4 @@
 # install utilities
-
-# raspberry pi utils
-package 'raspi-copies-and-fills'
-package 'raspi-config'
-
-# general utils
 package 'apt-utils'
 package 'aptitude'
 package 'htop'

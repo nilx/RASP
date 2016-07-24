@@ -1,7 +1,9 @@
 # apt settings
-
-cookbook_file '/etc/apt/apt.conf.d/01rasp' do
-  source 'etc/apt/apt.conf.d/01rasp'
+file '/etc/apt/apt.conf.d/01rasp' do
+  content "\
+APT::Get::Install-Recomments 'false';
+APT::Get::Install-Suggests   'false';
+"
 end
 
 # start clean

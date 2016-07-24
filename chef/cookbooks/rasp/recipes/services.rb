@@ -1,9 +1,7 @@
 # daemons
-
 service 'chef-client' do
-  action [:disable]
+  action :disable
 end
-
 service 'ssh' do
-  action [:disable]
+  action :disable
 end

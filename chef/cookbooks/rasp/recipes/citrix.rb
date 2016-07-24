@@ -1,6 +1,4 @@
-##
 # Citrix client
-
 icaclient_deb = '/root/icaclient_armhf.deb'
 
 package 'ruby-nokogiri'
@@ -16,6 +14,7 @@ ruby_block 'get icaclient' do
           + '/downloads/citrix-receiver/linux' \
           + '/receiver-for-linux-latest.html'
 
+    # get download url
     icaclient_url = ''
     Nokogiri::HTML(open(url)).css('.ctx-dl-external').each do |elt|
       rel = elt['rel']
@@ -48,19 +47,24 @@ execute 'apt-get --fix-broken' do
   action :nothing
 end
 
-# ssl certificate
+# missing ssl certificate
 cert = 'VeriSign_Class_3_Public_Primary_Certification_Authority_-_G5.pem'
 link "/opt/Citrix/ICAClient/keystore/cacerts/#{cert}" do
   to "/etc/ssl/certs/#{cert}"
 end
-
+# missing eula
+link '/opt/Citrix/ICAClient/nls/en/eula.txt' do
+  to '/opt/Citrix/ICAClient/eula.txt'
+end
 
 # command-line wfica
 link '/usr/local/bin/wfica' do
   to '/opt/Citrix/ICAClient/wfica.sh'
 end
 
-# missing eurl
-link '/opt/Citrix/ICAClient/nls/en/eula.txt' do
-  to '/opt/Citrix/ICAClient/eula.txt'
+# file association
+execute "open *.ica with wfica" do
+  command 'xdg-mime default wfica.desktop application/x-ica'
+  not_if { `xdg-mime query default application/x-ica`
+           == 'wfica.desktop'}
 end

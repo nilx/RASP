@@ -1,12 +1,16 @@
 #! /bin/sh
 # RASP<go> bootstrap script
-# curl -L https://github.com/nilx/RASP/raw/master/bootstrap.sh | sh
+# wget -q -O- https://github.com/nilx/RASP/raw/master/bootstrap.sh | sh
 
 set -e
 set -x
 
-DEBIAN_FRONTEND=noninteractive apt-get install --quiet --yes --no-install-recommends git chef
+# require git and chef
+DEBIAN_FRONTEND=noninteractive apt-get install \
+        --quiet --yes --no-install-recommends git chef
+# get RASP recipes
 git clone https://github.com/nilx/RASP.git
+# run RASP recipes
 cd RASP/chef
 ./rasp.sh
 reboot

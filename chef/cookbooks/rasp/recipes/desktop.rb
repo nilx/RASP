@@ -1,9 +1,5 @@
-# install desktop
-
-##
-# LXDE
-
-#TODO: fix timeout
+# install LXDE desktop
+# TODO: fix timeout
 execute 'install lightdm lxde' do
   command 'apt-get install -q -y lightdm lxde'
   environment 'DEBIAN_FRONTEND' => 'noninteractive'
@@ -21,10 +17,10 @@ package 'xscreensaver' do
 end
 
 # auto-login
-#cookbook_file '/etc/lightdm/lightdm.conf' do
-#  source 'etc/lightdm/lightdm.conf'
-#end
-
-##
-# web browser
-#package 'epiphany-browser'
+file '/etc/lightdm/lightdm.conf' do
+  content "\
+[SeatDefaults]
+autologin-user=pi
+autologin-user-timeout=0
+"
+end

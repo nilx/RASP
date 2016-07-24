@@ -1,6 +1,4 @@
 # set timezone
-
-# TODO: store in nopde attributes
 require 'open-uri'
 tz = 'Etc/UTC'
 open('http://icanhazip.com/') do |f|
