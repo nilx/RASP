@@ -1,7 +1,5 @@
 # install utilities
 
-#include_recipe "::packages"
-
 # raspberry pi utils
 package 'raspi-copies-and-fills'
 package 'raspi-config'
@@ -17,8 +15,3 @@ package 'sl'
 package 'zip'
 package 'bash-completion'
 package 'file'
-
-# for usb wifi
-package 'usbutils'
-package 'firmware-realtek'
-

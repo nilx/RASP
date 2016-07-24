@@ -3,3 +3,6 @@
 cookbook_file '/etc/apt/apt.conf.d/01rasp' do
   source 'etc/apt/apt.conf.d/01rasp'
 end
+
+# start clean
+execute 'dpkg --configure -a'

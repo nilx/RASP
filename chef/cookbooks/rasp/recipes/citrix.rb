@@ -54,7 +54,13 @@ link "/opt/Citrix/ICAClient/keystore/cacerts/#{cert}" do
   to "/etc/ssl/certs/#{cert}"
 end
 
+
 # command-line wfica
 link '/usr/local/bin/wfica' do
   to '/opt/Citrix/ICAClient/wfica.sh'
+end
+
+# missing eurl
+link '/opt/Citrix/ICAClient/nls/en/eula.txt' do
+  to '/opt/Citrix/ICAClient/eula.txt'
 end

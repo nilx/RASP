@@ -4,14 +4,16 @@
 # LXDE
 
 #TODO: fix timeout
-execute 'install lxde and lightdm' do
-  command 'apt-get install -q -y lxde lightdm'
+execute 'install lightdm lxde' do
+  command 'apt-get install -q -y lightdm lxde'
   environment 'DEBIAN_FRONTEND' => 'noninteractive'
   not_if { File.file?('/usr/bin/lxsession') \
            and File.file?('/usr/sbin/lightdm') }
 end
-package 'lxde'
 package 'lightdm'
+package 'lxde'
+package 'raspberrypi-ui-mods'
+package 'raspberrypi-net-mods'
 
 # don't need xscreensaver
 package 'xscreensaver' do
@@ -19,20 +21,10 @@ package 'xscreensaver' do
 end
 
 # auto-login
-cookbook_file '/etc/lightdm/lightdm.conf' do
-  source 'etc/lightdm/lightdm.conf'
-end
+#cookbook_file '/etc/lightdm/lightdm.conf' do
+#  source 'etc/lightdm/lightdm.conf'
+#end
 
 ##
 # web browser
-package 'epiphany-browser'
-
-# bookmarks toolbar
-# cookbook_file '/etc/iceweasel/profile/bookmarks.html' do
-#   source 'etc/iceweasel/profile/bookmarks.html'
-# end
-# FIXME: xulstore not used for new profiles
-#cookbook_file '/etc/iceweasel/profile/xulstore.json' do
-#  source 'etc/iceweasel/profile/xulstore.json'
-#end
-k
+#package 'epiphany-browser'
