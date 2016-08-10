@@ -14,7 +14,3 @@ package 'rng-tools'
 package 'raspi-copies-and-fills'
 # system configuration
 package 'raspi-config'
-
-# usb wifi for Pi 2B
-package 'usbutils'
-package 'firmware-realtek'

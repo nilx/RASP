@@ -30,7 +30,7 @@ TODO:
 * browser presets: no passwords
 * bemp presets for wicd
 * LXDE artwork
-* unattended upgrades, weekly `rpi-update`
+* unattended upgrades
 * trim down unneeded packages
 
 BUGS:

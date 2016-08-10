@@ -63,8 +63,8 @@ link '/usr/local/bin/wfica' do
 end
 
 # file association
-execute "open *.ica with wfica" do
-  command 'xdg-mime default wfica.desktop application/x-ica'
-  not_if { `xdg-mime query default application/x-ica`
-           == 'wfica.desktop'}
-end
+#execute "open *.ica with wfica" do
+#  command 'xdg-mime default wfica.desktop application/x-ica'
+#  not_if { `xdg-mime query default application/x-ica`
+#           == 'wfica.desktop'}
+#end

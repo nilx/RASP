@@ -6,8 +6,10 @@ set -e
 set -x
 
 # require git and chef
-sudo DEBIAN_FRONTEND=noninteractive apt-get install \
-        --quiet --yes --no-install-recommends git chef
+export DEBIAN_FRONTEND=noninteractive
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install --quiet --yes --no-install-recommends git chef
 # get RASP recipes
 git clone https://github.com/nilx/RASP.git
 # run RASP recipes
