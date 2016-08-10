@@ -12,5 +12,5 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install \
 git clone https://github.com/nilx/RASP.git
 # run RASP recipes
 cd RASP/chef
-#./rasp.sh
+./rasp.sh
 #reboot
