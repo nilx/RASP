@@ -1,5 +1,5 @@
 # check hardware version
-load "_hw"
+include_recipe "#{cookbook_name}::_hw"
 
 # include all recipes expected for a default setup
 #include_recipe "#{cookbook_name}::apt"
