@@ -1,10 +1,12 @@
+> __Note: very experimental, constantly broken__
+
 # RASP \<go>
 
 1. install the base Raspbian system on a RaspberryPi from
-  [Raspbian Jessie](https://www.raspberrypi.org/downloads/raspbian/)
-2. login as `pi/raspberry`
-3. `wget -q -O- https://github.com/nilx/RASP/raw/master/bootstrap.sh | sh`
-   (will take a loooong time to install everything, and reboot when it's done)
+  [Raspbian Jessie](https://www.raspberrypi.org/downloads/raspbian/);
+  full install recommended
+2. `wget -q -O- https://github.com/nilx/RASP/raw/master/bootstrap.sh | sh`
+   (will take quite some time to install everything, and reboot when it's done)
 
 You get:
 * a working, minimal, LXDE-based desktop on Raspberry Pi,
@@ -29,7 +31,7 @@ TODO:
 * bemp presets for wicd
 * LXDE artwork
 * unattended upgrades, weekly `rpi-update`
-* start from full image and trim down
+* trim down unneeded packages
 
 BUGS:
 * BBA pop-ups steal the focus
