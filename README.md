@@ -64,3 +64,4 @@ Shortcuts:
 * ALT+HOME 	Displays the Start menu
 * CTRL+ALT+END 	Brings up the Windows Security dialog box
 * ALT+DELETE 	Displays the Windows menu
+
